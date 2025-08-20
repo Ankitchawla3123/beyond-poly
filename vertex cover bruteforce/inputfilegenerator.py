@@ -29,8 +29,8 @@ def generate_graph_input(filename, n, m):
 
 if __name__ == "__main__":
     # Customize these parameters:
-    n = 5  # number of vertices
-    m = 6  # number of edges
+    n = 8  # number of vertices
+    m = 11  # number of edges
     output_file = "input.txt"
 
     generate_graph_input(output_file, n, m)
