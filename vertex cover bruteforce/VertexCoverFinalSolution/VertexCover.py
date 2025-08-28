@@ -1,6 +1,9 @@
 # GEN AI is used in one of the functions i.e is_vertex_cover(g,subset)
 # GFG reference for generate subsets 
 
+# if input files note present
+# Run the input file generator before running the code 
+
 import networkx as nx
 import matplotlib.pyplot as plt
 from itertools import combinations

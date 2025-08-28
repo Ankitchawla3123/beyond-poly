@@ -1,4 +1,8 @@
+ 
+# Gen Ai
+ 
 import random
+
 
 def generate_graph_input(filename, n, m):
     """
@@ -28,10 +32,10 @@ def generate_graph_input(filename, n, m):
             f.write(f"{u} {v}\n")
 
 if __name__ == "__main__":
-    # Customize these parameters:
-    n = 10  # number of vertices
-    m = 40  # number of edges
-    output_file = "input4.txt"
+    for i in range(1,5):
+        n = 10  # number of vertices
+        m = 10*i  # number of edges
+        output_file = f"input{i}.txt"
 
-    generate_graph_input(output_file, n, m)
-    print(f"Generated graph input file '{output_file}' with {n} vertices and {m} edges.")
+        generate_graph_input(output_file, n, m)
+        print(f"Generated graph input file '{output_file}' with {n} vertices and {m} edges.")
