@@ -1,8 +1,12 @@
-# GEN AI is used in one of the functions i.e is_vertex_cover(g,subset)
+# IMPORTANT INSTRUCTION
+''' if input files note present
+ Run the inputfilegenerator.py before running the code 
+ for consistent input all the time
+ '''
+ 
+# gen AI is used in one of the functions i.e is_vertex_cover(g,subset)
 # GFG reference for generate subsets 
 
-# if input files note present
-# Run the input file generator before running the code 
 
 import networkx as nx
 import matplotlib.pyplot as plt
@@ -28,12 +32,12 @@ def read_graph(filename):
 def print_graph(G):
     print(G)
     print("\nAdjacency list:-")
-    print(G.adjacency())
+    print(G.adjacency()) 
     for node, neighbors in G.adjacency():
         print(f"{node}: {list(neighbors)}")
 
 
-def generate_subsets(v): # Geek For Geeks
+def generate_subsets(v): # geek for geeks
     subsets = []
     for r in range(len(v) + 1):
         subsets.extend(combinations(v, r)) # array of tuples
