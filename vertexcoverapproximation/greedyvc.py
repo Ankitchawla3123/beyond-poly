@@ -1,3 +1,14 @@
+# IMPORTANT INSTRUCTION
+'''  
+INPUT files are same as input for bruteforce vertex cover 
+to maintain consistency 
+run this file to see the results 
+ '''
+ 
+# gen AI is used in one of the functions i.e ast library (Abstract Syntax Trees) 
+# used for parsing string to tuple/list
+
+
 import networkx as nx
 import matplotlib.pyplot as plt
 import time
@@ -21,7 +32,7 @@ def read_graph(filename):
     return G
 
 
-def greedy_vertex_cover(G):
+def greedy_vertex_cover(G):  # ref algo from GFG
     start = time.time()
     cover = set()
     H = G.copy()  
@@ -42,6 +53,11 @@ def plot_graph(G, highlight_nodes=None, title="Graph", pos=None, number=None):
     if not pos:
         pos = nx.spring_layout(G)
 
+    
+    # fixed layout for consistency , can also pass a seed as attribute for consistency across the devices 
+    # pos above return the dictionary position of each vertex 
+    # print(pos)
+    
     plt.figure(figsize=(8, 6))
 
     nx.draw(G, pos, with_labels=True, node_color='lightblue',
@@ -88,7 +104,7 @@ def calculate_approxfactor(index, greedylen , filename="assignment1_output.csv")
         csv_reader = csv.reader(file)
         csv_reader=list(csv_reader)
         
-        optimalsol_len=len(ast.literal_eval(csv_reader[index][1]))
+        optimalsol_len=len(ast.literal_eval(csv_reader[index][1])) # GEN AI USED HERE
     
     return optimalsol_len ,greedylen/optimalsol_len
         
@@ -105,10 +121,13 @@ def main():
         if G is None:
             return
 
+
         print(f"\nGraph from {filename}")
-        pos = plot_graph(G, title="Original Graph")
+        pos = plot_graph(G, title="Original Graph") # saving the position of input graph before showing the output
+        
         solution, time_taken = greedy_vertex_cover(G)
         sol_len=len(solution)
+        
         print(f"Greedy Vertex Cover: {solution}")
         print(f"Size: {sol_len}, Time: {time_taken}s")
         optimalsol_len, approxfactor=calculate_approxfactor(i,sol_len)
