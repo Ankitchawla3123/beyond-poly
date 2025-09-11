@@ -32,22 +32,21 @@ def read_graph(filename):
     return G
 
 
-def greedy_vertex_cover(G):  # ref algo from GFG
+def greedy_vertex_cover(G):
     start = time.time()
-    cover = set()
-    H = G.copy()  
 
-    while H.number_of_edges() > 0:
-        u, v = list(H.edges())[0]  
+    # Find a maximal matching
+    matching = nx.maximal_matching(G)
+
+    # Build the vertex cover from matched edges
+    cover = set()
+    for u, v in matching:
         cover.add(u)
         cover.add(v)
 
-        for edge in list(H.edges()):
-            if u in edge or v in edge:
-                H.remove_edge(edge[0],edge[1])
-
     end = time.time()
     return list(cover), end - start
+
 
 def plot_graph(G, highlight_nodes=None, title="Graph", pos=None, number=None):
     if not pos:
